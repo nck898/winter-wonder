@@ -28,7 +28,12 @@ void draw() {
     video.read();
   }
   background(0);
-  image(video,0,0);
+  if (on) {
+    image(video, 320, 180);
+  } else {
+    imageMode(CORNER);
+    image(video, 0, 0); //must make case like this since the rotation needs imageMode(CENTER)
+  }
   if (on) {
     snowFall();
   } else {
@@ -46,7 +51,7 @@ void snowFall() {
     
     sm = loadImage("snowman.png");
     sm.resize(100, 80);
-    image(sm, 500, 285);
+    image(sm, 500, 300);
   }
 }
 

@@ -1,7 +1,7 @@
 class Snowflake {
   float x, y, diameter;
   PImage img;
-  int angle = 0;
+  float angle = 0.1;
   
   Snowflake(PImage img, float tempX, float tempY, float tempD) {
     x = tempX;
@@ -21,6 +21,12 @@ class Snowflake {
   void display() {
     stroke(0);
     fill(127);
-    image(img, x, y, diameter, diameter);
+    imageMode(CENTER);
+    pushMatrix();
+    translate(x,y);
+    rotate(angle);
+    angle = angle + 0.1;
+    image(img, 0, 0, diameter, diameter);
+    popMatrix();
   }
 }
